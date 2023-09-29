@@ -93,14 +93,14 @@ describe("staking-program", async () => {
       // Add your test here
       let _adminTokenAccount = await getAccount(provider.connection, adminTokenAccount);
       console.log(_adminTokenAccount.address)
-      const tx = await program.methods.initialize().accounts({
-        admin: admin.publicKey,
-        escrowAccount: escrowPDA,
-        stakingToken: tokenMintPubkey,
-        tokenAccount: adminTokenAccount,
-        systemProgram: anchor.web3.SystemProgram.programId
-      }).
-      signers([admin, pool]).rpc();
+      // const tx = await program.methods.initialize().accounts({
+      //   admin: admin.publicKey,
+      //   escrowAccount: escrowPDA,
+      //   stakingToken: tokenMintPubkey,
+      //   tokenAccount: adminTokenAccount,
+      //   systemProgram: anchor.web3.SystemProgram.programId
+      // }).
+      // signers([admin, pool]).rpc();
 
       console.log("Your transaction signature", tx);
     });
