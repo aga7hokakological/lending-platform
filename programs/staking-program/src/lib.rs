@@ -113,7 +113,13 @@ pub struct Initialize<'info> {
     #[account(mut)]
     pub admin: Signer<'info>,
     /// Escrow account in which the tokens are to be staked
-    #[account(init, payer = admin, space = 8 + Escrow::LEN)]
+    #[account(
+        init, 
+        payer = admin, 
+        space = 8 + Escrow::LEN,
+        seeds = [b"escrow".as_ref(), admin.key().as_ref()],
+        bump
+    )]
     pub escrow_account: Account<'info, Escrow>,
     /// The token which is going to be staked
     #[account(mut)]
